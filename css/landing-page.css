@@ -94,20 +94,12 @@ h6 {
     }
 }
 
-.intro-link1 {
+.intro-links {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 2px;
 
-}
-
-.intro-link2 {
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    padding-top: 20px;
 }
 
 .network-name {
