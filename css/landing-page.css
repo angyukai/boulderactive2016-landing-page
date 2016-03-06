@@ -40,6 +40,28 @@ h6 {
     background-size: cover;
 }
 
+.faq-header {
+    padding-top: 400px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: -50px;
+    /*height: 600;*/
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/faq-bg.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.register-header {
+    padding-top: 400px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: -50px;
+    /*height: 600;*/
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/register-bg.jpg) no-repeat center center;
+    background-size: cover;
+    background-position: 80% 10%;
+}
+
+
 /*.intro-ba-title{
     color: red;
     font-weight: 800;
@@ -96,9 +118,9 @@ h6 {
 
 .intro-links {
     text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 2px;
+    font-size: 20px;
+    font-weight: 310;
+    letter-spacing: 1.5px;
 
 }
 
