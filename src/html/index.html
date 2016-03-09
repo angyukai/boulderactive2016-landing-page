@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Landing Page - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="stylesheets/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="stylesheets/landing-page.css" rel="stylesheet">
+    <link href="stylesheets/index.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="stylesheets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Titillium+Web' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+    <div class="menu-button">
+        <i class="fa fa-navicon fa-2x"></i>
+    </div>
+    <div class="menu-overlay">
+        <div class="menu-overlay__content">
+            <div class="menu-overlay__content__header">
+                <h1>Navigation</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Intro Block Wrapper -->
+    <article class="intro-wrapper block-wrapper">
+        <img class="intro-wrapper__logo" src="images/ba-main-logo.png">
+    </article>
+
+    <article class="preview-wrapper block-wrapper">
+        <img class="preview-wrapper__gif" src="images/ba-gif.gif">
+        <div class="preview-wrapper__buttons-wrapper">
+            <a href="#registration">
+                <div class="preview-wrapper__important-buttons">
+                    <div class="preview-wrapper__important-buttons__content">
+                        <h3>REGISTRATION</h3>
+                    </div>
+                </div>
+            <a/>
+            <a href="#">
+                <div class="preview-wrapper__important-buttons">
+                    <div class="preview-wrapper__important-buttons__content">
+                        <h3>INDEMITY FORM</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="#rules">
+                <div class="preview-wrapper__important-buttons">
+                    <div class="preview-wrapper__important-buttons__content">
+                        <h3>RULES</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="preview-wrapper__important-buttons">
+                    <div class="preview-wrapper__important-buttons__content">
+                        <h3>CRIMP</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </article>
+
+    <article class="rules-wrapper block-wrapper hidden-block">
+        <div class="rules-wrapper__content">
+            <h1>Rules & Eligibility</h1>
+            <div class="rules-wrapper__content__section">
+                <h2>Rules</h2>
+                <ul>
+                    <li>Competitors must wear the official event T-shirt during their climb.</li>
+                    <li>Competitors must report punctually for their respective categories. Latecomers will be disqualified. Competitors must wear the official event T-shirt during their climb.</li>
+                    <li>The organizers reserve the right to amend the rules and regulations without prior notice.</li>
+                    <li>Competitors will be briefed on the rules of the competition on the actual day itself.</li>
+                    <li>Schedule of categories may be subjected to changes. Participants are advised to check their email and the event website for the latest updates.</li>
+                    <li>The organizers reserve the right to utilize pictures taken of participants for the purposes of publicity, promotion and post-event reports.</li>
+                    <li>Different qualification formats of will be used throughout the competition. The Flash Format will be used during the U17, Novice and Intermediate Qualifying rounds, whereas the Rotation Format will be used during the Open Qualifying round and ALL categories’ finals.</li>
+                </ul>
+            </div>
+
+            <div class="rules-wrapper__content__section">
+                <h2>Eligibility</h2>
+                <p>The eligibility criteria are provided for each category. Participants in the wrong category will be disqualified and moved to a higher category. International climbers would have to contact NUS Climbing for category eligibility.</h3>
+                </p>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer>
+        <p>NUS Black Diamond Boulderactive 2016</p>
+        <i class="fa fa-facebook-square fa-2x"></i>
+        <i class="fa fa-instagram fa-2x"></i>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="javascripts/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="javascripts/bootstrap/bootstrap.min.js"></script>
+
+    <script>
+        var handleRoute = function() {
+            // Get Route
+            var hash = window.location.hash;
+            var route = hash.substr(1);
+            
+            switch(route) {
+                case "rules":
+                    switchBlock('.rules-wrapper');
+                    break;
+                default:
+                    switchBlock('.preview-wrapper');
+            }
+
+        }
+        var currentOpenedBlock = '.preview-wrapper';
+        $(document).ready(function() {
+            handleRoute();
+            $('.menu-button').click(function() {
+                $('.menu-overlay').toggleClass('reveal');
+            })
+
+            // switchBlock('.rules-wrapper');
+        });
+        
+        var switchBlock = function(nextBlock) {
+            if (currentOpenedBlock!=nextBlock) {
+                $(currentOpenedBlock).addClass('hidden-block');
+                currentOpenedBlock = nextBlock;
+                setTimeout(function() {
+                    $(currentOpenedBlock).removeClass('hidden-block');
+                    setTimeout(function() {
+                    // Scroll to element
+                    $('html, body').animate(
+                        { 
+                            scrollTop: $(currentOpenedBlock).offset().top
+                        }, 500);
+                    }, 500);
+                }, 1200);
+            }
+        }
+
+        $(window).on('hashchange', function() {
+            handleRoute();
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>
