@@ -53,7 +53,26 @@
 		font-family: $menu-font;
 
 		h1 
+			position: relative;
 			font-family: $menu-font;
+			&:after
+				content: ""
+				position: absolute;
+				bottom: -9px;
+				background-color: #6a1015;
+				width: 100px;
+				height: 2px;
+				left: 50%;
+				transform: translateX(-50%);
+
+		ul
+			a
+				color: #6a1015;
+			font-size: 2em;
+			padding: 0;
+			margin-top: 20px;
+			list-style-type: none;
+
 		
 // 
 body 
@@ -141,6 +160,28 @@ $navbar-height: 50px;
 			&:hover 
 				background-color: rgba(0,0,0,1);
 			
+
+.about-wrapper 
+	// padding: 50px;
+	font-family: 'Titillium Web', sans-serif;
+	text-align: center;
+	color: #9c9a9a;
+	h1 
+		margin-top: 0;
+		text-align: center;
+	background-color: #151515;
+	overflow: hidden;
+	height: auto;
+
+	.about-wrapper__content 
+		padding: 30px 1% 30px 1%;
+		.about-wrapper__content__section
+			h2
+				margin: 0;
+				background-color: black;
+			background-color: #404040;
+			padding: 1%;
+			margin-bottom: 5px;
 
 .rules-wrapper 
 	// padding: 50px;

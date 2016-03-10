@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="bouldering competition singapore">
+    <meta name="author" content="nus climbing team">
 
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>NUS Black Diamond Boulderactive 2016</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="external/stylesheets/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -33,6 +33,14 @@
         <div class="menu-overlay__content">
             <div class="menu-overlay__content__header">
                 <h1>Navigation</h1>
+                <ul>
+                    <a href="#"><li>Home</li></a>
+                    <a href="#about"><li>about</li></a>
+                    <a href="#registration"><li>registration</li></a>
+                    <a href="#rules"><li>rules</li></a>
+                    <a href="#faq"><li>faq</li></a>
+                    <!-- <a href="#sponsors"><li>sponsors</li></a> -->
+                </ul>
             </div>
         </div>
     </div>
@@ -48,6 +56,7 @@
                 <div class="preview-wrapper__important-buttons">
                     <div class="preview-wrapper__important-buttons__content">
                         <h3>REGISTRATION</h3>
+                        <!-- <i class="fa fa-pencil-square-o fa-2x"></i> -->
                     </div>
                 </div>
             <a/>
@@ -55,6 +64,7 @@
                 <div class="preview-wrapper__important-buttons">
                     <div class="preview-wrapper__important-buttons__content">
                         <h3>INDEMITY FORM</h3>
+                        <!-- <i class="fa fa-file-word-o fa-2x"></i> -->
                     </div>
                 </div>
             </a>
@@ -62,6 +72,7 @@
                 <div class="preview-wrapper__important-buttons">
                     <div class="preview-wrapper__important-buttons__content">
                         <h3>RULES</h3>
+                        <!-- <i class="fa fa-warning fa-2x"></i> -->
                     </div>
                 </div>
             </a>
@@ -69,16 +80,38 @@
                 <div class="preview-wrapper__important-buttons">
                     <div class="preview-wrapper__important-buttons__content">
                         <h3>FAQ</h3>
+                        <!-- <i class="fa fa-question fa-2x"></i> -->
                     </div>
                 </div>
             </a>
         </div>
     </article>
 
+    <!-- ABOUT -->
+    <article class="about-wrapper block-wrapper hidden-block">
+        <div class="about-wrapper__content">
+            <h1>About</h1>
+            <div class="about-wrapper__content__section">
+                <h2>Boulderactive</h2>
+                <p>
+                    In 1998, the NUS Climbing Club invited like-minded individuals for a day of climbing in the NUS Bouldering Gym and this invitation has reached more and more climbing enthusiasts over the years. As the number of participants grew, NUS Climbing Club and TeamNUS Climbing jointly organized a climbing event that goes beyond the NUS Bouldering Gym ñ Boulderactive. This event that was inaugurated in 2001 became the first ever national-scale climbing-related competition, increasing the profile of bouldering in the public community. The inception of Boulderactive was a milestone in the local climbing scene, triggering zealous interest for the sport. <br>
+                    <br>
+                    Boulderactive has successfully attracted the attention of climbers both locally and regionally in the 18 years it has been running, evolving into one of the most highly anticipated climbing events annually.
+                </p>
+            </div>
+            <div class="about-wrapper__content__section">
+                <h2>Black Diamond</h2>
+                <p>
+                    Black Diamond specializes on top-quality gear for skiing and climbing. The team behind Black Diamond are climbers and skiers themselves and thus, they stand for the spirit of these extreme sports through their products. Since 1957, Black Diamond has been pushing the standards in innovative gear designs, creating a promising future for the climbers and skiers around the world. Over the years, Black Diamond has grown as a company and has gained recognition for the excellent equipment they provide, allowing climbers and skiers to take their craft to the next level.
+                </p>
+            </div>
+        </div>
+    </article>
+
     <!-- RULES AND ELIGIBILITY -->
     <article class="rules-wrapper block-wrapper hidden-block">
         <div class="rules-wrapper__content">
-            <h1>Rules & Eligibility</h1>
+            <h1>Rules and Regulations</h1>
             <div class="rules-wrapper__content__section">
                 <h2>Rules</h2>
                 <ul>
@@ -263,6 +296,9 @@
             var route = hash.substr(1);
             
             switch(route) {
+                case "about":
+                    switchBlock('.about-wrapper');
+                    break;
                 case "rules":
                     switchBlock('.rules-wrapper');
                     break;
@@ -279,6 +315,10 @@
             handleRoute();
             $('.menu-button').click(function() {
                 $('.menu-overlay').toggleClass('reveal');
+            })
+
+            $('.menu-overlay a').click(function() {
+                $('.menu-overlay').removeClass('reveal');
             })
 
             // switchBlock('.rules-wrapper');
