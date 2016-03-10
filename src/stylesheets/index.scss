@@ -173,6 +173,64 @@ $navbar-height: 50px;
 					background-color: black;
 
 
+.faq-wrapper 
+	// padding: 50px;
+	max-height: 3000px;
+	font-family: 'Titillium Web', sans-serif;
+	text-align: center;
+	color: #9c9a9a;
+	h1 
+		margin-top: 0;
+		text-align: center;
+	background-color: #151515;
+	overflow: hidden;
+	height: auto;
+
+	.faq-wrapper__content 
+		padding: 30px 10px 30px 10px;
+		.faq__section
+			background-color: #404040;
+			h2
+				margin-top: 0;
+				margin-bottom: 5px;
+			padding: 1% 1% 15px 1%;
+			margin-bottom: 15px;
+
+		.faq__question
+			margin-top: 0;
+			margin-bottom: 0;
+			position: relative;
+			background-color: black;
+			padding: 4px;
+			margin-right: 20px;
+			&:after
+				position: absolute;
+				bottom: -20px;
+				left: 0;
+				content: "";
+				border-style: solid;
+				border-width: 20px 20px 0 0px;
+				border-color: black transparent transparent transparent;
+				z-index: 2;
+
+		.faq__answer
+			margin-top: 8px;
+			margin-left: 20px;
+			margin-bottom: 10px;
+			position: relative;
+			background-color: #9c9a9a;
+			color: black;
+			padding: 4px;
+			&:after
+				position: absolute;
+				bottom: -20px;
+				right: 0;
+				content: "";
+				border-style: solid;
+				border-width: 20px 0 0 20px;
+				border-color: #9c9a9a transparent transparent transparent;
+				z-index: 2;
+
 
 
 footer 
