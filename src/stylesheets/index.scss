@@ -27,7 +27,7 @@
 	top: 0;
 	left: 0;
 	background-color: black;
-	z-index: 2;
+	z-index: 3;
 	text-align: center;
 	line-height: $menu-button;
 
@@ -42,7 +42,7 @@
 	height: 100vh;
 	background-color: rgba(0,0,0,0.9);
 	top: 0;
-	z-index: 1;
+	z-index: 2;
 
 	&.reveal
 		display: inline;
@@ -114,10 +114,14 @@ $navbar-height: 50px;
 		z-index: 1;
 
 .preview-wrapper
+	background: url('../../images/ba-gif.gif');
+	background-size: cover;
 	height: 400px;
 	overflow: hidden;
-	.preview-wrapper__gif
-		width: 100%;
+
+	@media (min-width: 600px) 
+		background: url('../../images/ba-gif-large.gif');
+		background-size: cover;
 
 	.preview-wrapper__buttons-wrapper
 		position: absolute;
@@ -161,6 +165,75 @@ $navbar-height: 50px;
 				background-color: rgba(0,0,0,1);
 			
 
+.blog-wrapper
+	font-family: 'Titillium Web', sans-serif;
+	text-align: center;
+	color: #9c9a9a;
+	h1 
+		margin-top: 0;
+		text-align: center;
+	background-color: #151515;
+	overflow: hidden;
+	height: auto;
+
+	.blog-wrapper__content
+		padding: 20px 0 20px 0;
+
+.registration-wrapper
+	font-family: 'Titillium Web', sans-serif;
+	text-align: center;
+	color: #9c9a9a;
+	h1 
+		margin-top: 0;
+		text-align: center;
+	background-color: #151515;
+	overflow: hidden;
+	height: auto;
+
+	.registration-wrapper__content
+		padding: 20px 0 20px 0;
+		.registration-category-button
+			overflow: hidden;
+			display: inline-block;
+			cursor: pointer;
+			width: 100px;
+			height: 100px;
+			// line-height: 100px;
+			background-color: black;
+			color: white;
+			.button__label 
+				position: relative;
+				overflow: hidden;
+				top: 50%;
+				transform: translateY(-50%);
+
+			&:hover 
+				background-color: white;
+				color: black;
+			
+
+		@media (min-width: 600px) 
+			.registration-category-button
+				font-size: 1.25em;
+				width: 125px;
+				height: 125px;
+				// line-height: 125px;
+
+		@media (min-width: 800px) 
+			.registration-category-button
+				font-size: 1.5em;
+				width: 150px;
+				height: 150px;
+				// line-height: 150px;
+
+		@media (min-width: 1000px) 
+			.registration-category-button
+				font-size: 2em;
+				width: 200px;
+				height: 200px;
+				// line-height: 200px;
+  
+
 .about-wrapper 
 	// padding: 50px;
 	font-family: 'Titillium Web', sans-serif;
@@ -179,9 +252,12 @@ $navbar-height: 50px;
 			h2
 				margin: 0;
 				background-color: black;
-			background-color: #404040;
+			background-color: #0e0e0e;
 			padding: 1%;
 			margin-bottom: 5px;
+			p
+				text-align: left;
+
 
 .rules-wrapper 
 	// padding: 50px;
@@ -230,18 +306,32 @@ $navbar-height: 50px;
 	.faq-wrapper__content 
 		padding: 30px 10px 30px 10px;
 		.faq__section
-			background-color: #404040;
+			// background-color: #404040;
 			h2
+				position: relative;
+				text-align: left;
 				margin-top: 0;
 				margin-bottom: 5px;
+
+				&:after
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					content: ""; 
+					background-color: #9c9a9a;
+					width: 100%;
+					height: 1px;
+
 			padding: 1% 1% 15px 1%;
 			margin-bottom: 15px;
 
+		$faq-question-color: #0e0e0e;
 		.faq__question
+			font-size: 1.3em;
 			margin-top: 0;
 			margin-bottom: 0;
 			position: relative;
-			background-color: black;
+			background-color: $faq-question-color;
 			padding: 4px;
 			margin-right: 20px;
 			&:after
@@ -251,16 +341,16 @@ $navbar-height: 50px;
 				content: "";
 				border-style: solid;
 				border-width: 20px 20px 0 0px;
-				border-color: black transparent transparent transparent;
+				border-color: $faq-question-color transparent transparent transparent;
 				z-index: 2;
 
+		$faq-answer-color: black;
 		.faq__answer
 			margin-top: 8px;
 			margin-left: 20px;
 			margin-bottom: 10px;
 			position: relative;
-			background-color: #9c9a9a;
-			color: black;
+			background-color: $faq-answer-color;
 			padding: 4px;
 			&:after
 				position: absolute;
@@ -269,8 +359,63 @@ $navbar-height: 50px;
 				content: "";
 				border-style: solid;
 				border-width: 20px 0 0 20px;
-				border-color: #9c9a9a transparent transparent transparent;
+				border-color: $faq-answer-color transparent transparent transparent;
 				z-index: 2;
+
+
+.schedule-choices-wrapper 
+	// padding: 50px;
+	max-height: 3000px;
+	font-family: 'Titillium Web', sans-serif;
+	text-align: center;
+	color: #9c9a9a;
+	h1 
+		margin-top: 0;
+		text-align: center;
+	background-color: #151515;
+	overflow: hidden;
+	height: auto;
+
+	.schedule-choices-wrapper__content
+		padding: 30px 10px 30px 10px;
+		ul
+			list-style-type: none;
+			padding: 0;
+			a 
+				color: #9c9a9a;
+				text-decoration: none;
+
+			.schedule-button 
+				font-size: 1.5em;
+				margin-bottom: 3px;
+				background-color: black;
+				cursor: pointer;
+				h3
+					padding: 6px;
+					margin: 0;
+					background-color: #0e0e0e;
+					&:hover 
+						background-color: black;
+				.schedule-table-wrapper
+					overflow: hidden;
+					max-height: 0;
+					transition: max-height 0.3s ease;
+
+					table
+						th
+							font-size: 0.9em;
+						margin: 4px;
+						td 
+							text-align: left;
+							padding: 2px;
+							font-size: 0.7em;
+				&.clicked
+					h3 
+						background-color: white;
+						color: black;
+					.schedule-table-wrapper
+						max-height: 1000px;
+
 
 
 
@@ -291,10 +436,12 @@ footer
 		margin: auto;
 
 	.fa 
-		margin: 0 2px 0 2px;
+		margin: 3px 4px 0 4px;
 
 	text-align: center;
 	color: $footer-color;
+	a
+		color: $footer-color;
 	background-color: black;
 	height: 100px;
 	font-family: $footer-font;

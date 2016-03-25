@@ -34,9 +34,10 @@
             <div class="menu-overlay__content__header">
                 <h1>Navigation</h1>
                 <ul>
-                    <a href="#"><li>Home</li></a>
-                    <a href="#about"><li>about</li></a>
+                    <a href="#"><li>home</li></a>
                     <a href="#registration"><li>registration</li></a>
+                    <!-- <a href="#schedule"><li>schedule</li></a> -->
+                    <a href="#about"><li>about</li></a>
                     <a href="#rules"><li>rules</li></a>
                     <a href="#faq"><li>faq</li></a>
                     <!-- <a href="#sponsors"><li>sponsors</li></a> -->
@@ -44,13 +45,13 @@
             </div>
         </div>
     </div>
+
     <!-- Intro Block Wrapper -->
     <article class="intro-wrapper block-wrapper">
-        <img class="intro-wrapper__logo" src="images/ba-main-logo.png">
+        <img onclick="location.href='#'" class="intro-wrapper__logo" src="images/ba-main-logo.png">
     </article>
 
     <article class="preview-wrapper block-wrapper">
-        <img class="preview-wrapper__gif" src="images/ba-gif.gif">
         <div class="preview-wrapper__buttons-wrapper">
             <a href="#registration">
                 <div class="preview-wrapper__important-buttons">
@@ -60,10 +61,10 @@
                     </div>
                 </div>
             <a/>
-            <a href="#">
+            <a href="#blog">
                 <div class="preview-wrapper__important-buttons">
                     <div class="preview-wrapper__important-buttons__content">
-                        <h3>INDEMITY FORM</h3>
+                        <h3>BLOG</h3>
                         <!-- <i class="fa fa-file-word-o fa-2x"></i> -->
                     </div>
                 </div>
@@ -84,6 +85,39 @@
                     </div>
                 </div>
             </a>
+        </div>
+    </article>
+
+    <!-- Blog Block Wrapper -->
+    <article class="blog-wrapper block-wrapper hidden-block">
+        <div class="blog-wrapper__content">
+            <h1>Coming Soon</h1>
+            <p>Please stay tuned! :)</p>
+        </div>
+    </article>
+
+    <!-- Registration Block Wrapper -->
+    <article class="registration-wrapper block-wrapper hidden-block">
+        <div class="registration-wrapper__content">
+            <h1>Registration</h1>
+            <a href="http://tinyurl.com/BA16-Individual" target="_blank"><div class="registration-category-button">
+                <div class="button__label">
+                    <i class="fa fa-user fa-2x"></i><br>
+                    Individual 
+                </div>
+            </div></a>
+            <a href="http://tinyurl.com/BA16-Team" target="_blank"><div class="registration-category-button">
+                <div class="button__label">
+                    <i class="fa fa-users fa-2x"></i><br>
+                    Team 
+                </div>
+            </div></a>
+            <a href="http://tinyurl.com/BA16-FunClimb" target="_blank"><div class="registration-category-button">
+                <div class="button__label">
+                    <i class="fa fa-smile-o fa-2x"></i><br>
+                    Fun Climb
+                </div>
+            </div></a>
         </div>
     </article>
 
@@ -276,11 +310,286 @@
         </div>
     </article>
 
+    <article class="schedule-choices-wrapper block-wrapper hidden-block">
+        <div class="schedule-choices-wrapper__content">
+            <h1>Schedule</h1>
+            <ul>
+                <li class="schedule-button">
+                    <h3>Full</h3>
+                    <div class="schedule-table-wrapper">
+                        <table>
+                            <tr>
+                                <th>Event</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                            <tr>
+                                <td>Qualifiers Registration Open</td>
+                                <td>20th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                        </table>
+                    </div>
+                </li>
+                <li class="schedule-button">
+                    <h3>Under 17 Boys</h3>
+                    <div class="schedule-table-wrapper">
+                        <table>
+                            <tr>
+                                <th>Event</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                            <tr>
+                                <td>Qualifiers Registration Open</td>
+                                <td>20th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Registration Open</td>
+                                <td>21th June 2016</td>
+                                <td>16:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Isolation Open</td>
+                                <td>21th June 2016</td>
+                                <td>16:30</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Isolation Close</td>
+                                <td>21th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals</td>
+                                <td>21th June 2016</td>
+                                <td>1730</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </li>
+                <li class="schedule-button">
+                    <h3>Under 17 Girls</h3>
+                    <div class="schedule-table-wrapper">
+                        <table>
+                            <tr>
+                                <th>Event</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                            <tr>
+                                <td>Qualifiers Registration Open</td>
+                                <td>20th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Registration Open</td>
+                                <td>21th June 2016</td>
+                                <td>16:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Isolation Open</td>
+                                <td>21th June 2016</td>
+                                <td>16:30</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Isolation Close</td>
+                                <td>21th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals</td>
+                                <td>21th June 2016</td>
+                                <td>1730</td>
+                            </tr>
+                        </table>
+                    </div>
+                </li>
+                <li class="schedule-button">
+                    <h3>Novice Men</h3>
+                    <div class="schedule-table-wrapper">
+                        <table>
+                            <tr>
+                                <th>Event</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                            <tr>
+                                <td>Qualifiers Registration Open</td>
+                                <td>20th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Registration Open</td>
+                                <td>21th June 2016</td>
+                                <td>16:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Isolation Open</td>
+                                <td>21th June 2016</td>
+                                <td>16:30</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Isolation Close</td>
+                                <td>21th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals</td>
+                                <td>21th June 2016</td>
+                                <td>1730</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </li>
+                <li class="schedule-button">
+                    <h3>Novice Women</h3>
+                    <div class="schedule-table-wrapper">
+                        <table>
+                            <tr>
+                                <th>Event</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                            <tr>
+                                <td>Qualifiers Registration Open</td>
+                                <td>20th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Registration Open</td>
+                                <td>21th June 2016</td>
+                                <td>16:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Isolation Open</td>
+                                <td>21th June 2016</td>
+                                <td>16:30</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Isolation Close</td>
+                                <td>21th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals</td>
+                                <td>21th June 2016</td>
+                                <td>1730</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </li>
+                <li class="schedule-button">
+                    <h3>Intermediate Men</h3>
+                    <div class="schedule-table-wrapper">
+                        <table>
+                            <tr>
+                                <th>Event</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                            <tr>
+                                <td>Qualifiers Registration Open</td>
+                                <td>20th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Registration Open</td>
+                                <td>21th June 2016</td>
+                                <td>16:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Isolation Open</td>
+                                <td>21th June 2016</td>
+                                <td>16:30</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Isolation Close</td>
+                                <td>21th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals</td>
+                                <td>21th June 2016</td>
+                                <td>1730</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </li>
+                <li class="schedule-button">
+                    <h3>Intermediate Women</h3>
+                    <div class="schedule-table-wrapper">
+                        <table>
+                            <tr>
+                                <th>Event</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                            <tr>
+                                <td>Qualifiers Registration Open</td>
+                                <td>20th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Registration Open</td>
+                                <td>21th June 2016</td>
+                                <td>16:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Isolation Open</td>
+                                <td>21th June 2016</td>
+                                <td>16:30</td>
+                            </tr>
+                            <tr>
+                                <td>Finals Isolation Close</td>
+                                <td>21th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Finals</td>
+                                <td>21th June 2016</td>
+                                <td>1730</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </li>
+                <li class="schedule-button">
+                    <h3>Open Men</h3>
+                    <div class="schedule-table-wrapper">
+                        <table>
+                            <tr>
+                                <th>Event</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                            <tr>
+                                <td>Qualifiers Registration Open</td>
+                                <td>20th June 2016</td>
+                                <td>17:00</td>
+                            </tr>
+                        </table>
+                    </div>
+                </li>
+                <li class="schedule-button">
+                    <h3>Novice Men</h3>
+                    <div class="schedule-table-wrapper">
+                        llalalal
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </article>
+
     <!-- Footer -->
     <footer>
         <p>NUS Black Diamond Boulderactive 2016</p>
-        <i class="fa fa-facebook-square fa-2x"></i>
-        <i class="fa fa-instagram fa-2x"></i>
+        <a href="https://www.facebook.com/NUS.Boulderactive/" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+        <a href="https://www.instagram.com/boulderactive2016/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
     </footer>
 
     <!-- jQuery -->
@@ -296,6 +605,9 @@
             var route = hash.substr(1);
             
             switch(route) {
+                case "registration":
+                    switchBlock('.registration-wrapper');
+                    break;
                 case "about":
                     switchBlock('.about-wrapper');
                     break;
@@ -304,6 +616,12 @@
                     break;
                 case "faq":
                     switchBlock('.faq-wrapper');
+                    break;
+                case "schedule":
+                    switchBlock('.schedule-choices-wrapper');
+                    break;
+                case "blog":
+                    switchBlock('.blog-wrapper');
                     break;
                 default:
                     switchBlock('.preview-wrapper');
@@ -319,6 +637,10 @@
 
             $('.menu-overlay a').click(function() {
                 $('.menu-overlay').removeClass('reveal');
+            })
+
+            $('.schedule-button').click(function() {
+                $(this).toggleClass('clicked');
             })
 
             // switchBlock('.rules-wrapper');
