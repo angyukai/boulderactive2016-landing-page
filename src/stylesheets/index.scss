@@ -122,6 +122,7 @@ $navbar-height: 50px;
 	@media (min-width: 600px) 
 		background: url('../../images/ba-gif-large.gif');
 		background-size: cover;
+		height: 530px;
 
 	.preview-wrapper__buttons-wrapper
 		position: absolute;
@@ -163,7 +164,13 @@ $navbar-height: 50px;
 
 			&:hover 
 				background-color: rgba(0,0,0,1);
-			
+
+	@media (min-width: 600px) 
+		.preview-wrapper__buttons-wrapper
+			width: 420px
+			.preview-wrapper__important-buttons
+				width: 200px;
+
 
 .blog-wrapper
 	font-family: 'Titillium Web', sans-serif;
