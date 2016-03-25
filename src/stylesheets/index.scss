@@ -116,13 +116,15 @@ $navbar-height: 50px;
 .preview-wrapper
 	background: url('../../images/ba-gif.gif');
 	background-size: cover;
+
 	height: 400px;
 	overflow: hidden;
 
 	@media (min-width: 600px) 
 		background: url('../../images/ba-gif-large.gif');
 		background-size: cover;
-		height: 530px;
+		background-position: center; 
+		height: 600px;
 
 	.preview-wrapper__buttons-wrapper
 		position: absolute;
@@ -143,6 +145,7 @@ $navbar-height: 50px;
 			color: $button-color;
 			text-align: center;
 			font-size: 2em;
+
 			background-color: rgba(0,0,0,0.5);
 			.preview-wrapper__important-buttons__content
 				position: absolute;
@@ -156,6 +159,9 @@ $navbar-height: 50px;
 					font-family: $button-font;
 					text-align: center;
 					width: 100%;
+
+					@media (min-width: 600px) 
+						font-size: 1.8em;
 					// transform: translateY(-50%);
 			&:before
 				content: "";
@@ -167,9 +173,9 @@ $navbar-height: 50px;
 
 	@media (min-width: 600px) 
 		.preview-wrapper__buttons-wrapper
-			width: 420px
+			width: 500px
 			.preview-wrapper__important-buttons
-				width: 200px;
+				width: 240px;
 
 
 .blog-wrapper
@@ -189,7 +195,7 @@ $navbar-height: 50px;
 .registration-wrapper
 	font-family: 'Titillium Web', sans-serif;
 	text-align: center;
-	color: #9c9a9a;
+	color: white;
 	h1 
 		margin-top: 0;
 		text-align: center;
@@ -210,7 +216,7 @@ $navbar-height: 50px;
 			color: white;
 			.button__label 
 				position: relative;
-				overflow: hidden;
+				// overflow: hidden;
 				top: 50%;
 				transform: translateY(-50%);
 
