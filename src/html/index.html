@@ -40,12 +40,12 @@
                 <h1>Navigation</h1>
                 <ul>
                     <a href="#"><li>home</li></a>
+                    <a href="#about"><li>about</li></a>
                     <a href="#registration"><li>registration</li></a>
                     <!-- <a href="#schedule"><li>schedule</li></a> -->
-                    <a href="#about"><li>about</li></a>
                     <a href="#rules"><li>rules</li></a>
                     <a href="#faq"><li>faq</li></a>
-                    <!-- <a href="#sponsors"><li>sponsors</li></a> -->
+                    <a href="#sponsors"><li>sponsors</li></a>
                 </ul>
             </div>
         </div>
@@ -108,19 +108,29 @@
             <a href="http://tinyurl.com/BA16-Individual" target="_blank"><div class="registration-category-button">
                 <div class="button__label">
                     <i class="fa fa-user fa-2x"></i><br>
-                    Individual 
+                    Individual
+                    <span class="pricing-label">
+                        Early Bird - $30<br>Normal - $40
+                    </span> 
                 </div>
             </div></a>
             <a href="http://tinyurl.com/BA16-Team" target="_blank"><div class="registration-category-button">
                 <div class="button__label">
                     <i class="fa fa-users fa-2x"></i><br>
-                    Team 
+                    Team
+                    <span class="pricing-label">
+                        Early Bird - $90<br>Normal - $110
+                    </span>  
                 </div>
             </div></a>
             <a href="http://tinyurl.com/BA16-FunClimb" target="_blank"><div class="registration-category-button">
                 <div class="button__label">
                     <i class="fa fa-smile-o fa-2x"></i><br>
                     Fun Climb
+                    <span class="pricing-label">
+                        Adult+Child (10y/o and below) - $20<br>
+                        Individual (11y/o and above) - $15 
+                    </span> 
                 </div>
             </div></a>
         </div>
@@ -590,6 +600,45 @@
         </div>
     </article>
 
+    <!-- Sponsors Wrapper -->
+    <article class="sponsors-wrapper block-wrapper hidden-block">
+        <div class="sponsors-wrapper__content">
+            <h1>Sponsors</h1>
+            <ul class="sponsors-list">
+                <li class="sponsors-list__item">
+                    <h3>Title Sponsor</h3>
+                    <img src="images/sponsors/black-diamond-logo.png">
+                </li>
+                <li class="sponsors-list__item">
+                    <h3>In Partnership with</h3>
+                    <img src="images/sponsors/outdoor-life-logo.png">
+                </li>
+                <li class="sponsors-list__item">
+                    <h3>Official Climbing Partner</h3>
+                    <img src="images/sponsors/climb-asia-logo.png">
+                </li>
+                <li class="sponsors-list__item">
+                    <h3>Official Broadcasting Sponsor</h3>
+                    <img src="images/sponsors/livetech-logo.png">
+                </li>
+                <li class="sponsors-list__item">
+                    <h3>Official Apparel Sponsor</h3>
+                    <img src="images/sponsors/compresssport-logo.png">
+                </li>
+                <li class="sponsors-list__item">
+                    <h3>Official Venue Sponsor</h3>
+                    <img src="images/sponsors/funan-logo.png">
+                </li>
+                <li class="sponsors-list__item">
+                    <h3>Supported By</h3>
+                    <img src="images/sponsors/teamnus-logo.png">
+                    <img src="images/sponsors/nus-climbing-club-logo.png">
+                </li>
+            </ul>
+        </div>
+    </article>
+
+
     <!-- Footer -->
     <footer>
         <p>NUS Black Diamond Boulderactive 2016</p>
@@ -632,6 +681,10 @@
                     break;
                 case "blog":
                     switchBlock('.blog-wrapper');
+                    sendPageViewToGoogle(route);
+                    break;
+                case "sponsors":
+                    switchBlock('.sponsors-wrapper');
                     sendPageViewToGoogle(route);
                     break;
                 default:
