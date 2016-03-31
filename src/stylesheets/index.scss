@@ -254,6 +254,7 @@ $navbar-height: 50px;
 	text-align: center;
 	color: #9c9a9a;
 	h1 
+		color: white;
 		margin-top: 0;
 		text-align: center;
 	background-color: #151515;
@@ -265,12 +266,13 @@ $navbar-height: 50px;
 		.about-wrapper__content__section
 			h2
 				margin: 0;
-				background-color: black;
 			background-color: #0e0e0e;
 			padding: 1%;
 			margin-bottom: 5px;
 			p
+				background-color: black;
 				text-align: left;
+				padding: 5px;
 
 
 .rules-wrapper 
@@ -279,6 +281,7 @@ $navbar-height: 50px;
 	text-align: center;
 	color: #9c9a9a;
 	h1 
+		color: white;
 		margin-top: 0;
 		text-align: center;
 	background-color: #151515;
@@ -311,6 +314,7 @@ $navbar-height: 50px;
 	text-align: center;
 	color: #9c9a9a;
 	h1 
+		color: white;
 		margin-top: 0;
 		text-align: center;
 	background-color: #151515;
@@ -455,10 +459,60 @@ $navbar-height: 50px;
 			margin-top: 20px;
 			list-style-type: none;
 
+			background-color: #0e0e0e;
 			.sponsors-list__item
+				margin-bottom: 5px;
+				padding: 5px;
+				h3 
+					padding: 3px;
+					margin: 5px 0 8px 0;
+
+				background-color: #0e0e0e;
+
+				.sponsors-logo-wrapper 
+					background-color: black;
+					padding: 5px;
 				img
 					width: 90%;
 					margin: 0 auto 0 auto;
+
+
+				#black-diamond-logo
+					max-width: 380px;
+
+				#outdoor-life-logo
+					max-width: 380px;
+
+				#climb-asia-logo
+					width: 35%;
+					max-width: 150px;
+
+				#livetech-logo
+					width: 60%;
+					max-width: 250px;
+
+				#compresssport-logo
+					max-width: 380px;
+
+				#funan-logo
+					width: 75%;
+					max-width: 320px;
+
+				#teamnus-logo
+					width: 75%;
+					max-width: 320px;
+
+				#nus-climbing-club-logo
+					width: 50%;
+					max-width: 212px;
+
+				&.multiple-sponsors
+					img
+						margin-bottom: 10px;
+						@media screen and (min-width: 450px)
+							margin-left: 6px;	
+							margin-right: 6px;	
+
 
 footer 
 	$footer-color: #6a1015;
