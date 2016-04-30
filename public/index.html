@@ -42,6 +42,7 @@
                     <a href="#"><li>home</li></a>
                     <a href="#about"><li>about</li></a>
                     <a href="#registration"><li>registration</li></a>
+                    <a href="#indemnity"><li>indemnity form</li></a>
                     <!-- <a href="#schedule"><li>schedule</li></a> -->
                     <a href="#rules"><li>rules</li></a>
                     <a href="#faq"><li>faq</li></a>
@@ -66,10 +67,10 @@
                     </div>
                 </div>
             <a/>
-            <a href="#blog">
+            <a href="#indemnity">
                 <div class="preview-wrapper__important-buttons">
                     <div class="preview-wrapper__important-buttons__content">
-                        <h3>BLOG</h3>
+                        <h3>INDEMNITY</h3>
                         <!-- <i class="fa fa-file-word-o fa-2x"></i> -->
                     </div>
                 </div>
@@ -749,6 +750,9 @@
                     switchBlock('.sponsors-wrapper');
                     sendPageViewToGoogle(route);
                     break;
+                case "indemnity":
+                    window.location = 'Indemnity-ba2016.docx';
+                    sendPageViewToGoogle(route);
                 default:
                     switchBlock('.preview-wrapper');
                     sendPageViewToGoogle(route);
