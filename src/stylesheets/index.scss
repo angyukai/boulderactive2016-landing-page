@@ -13,14 +13,17 @@
 
 @keyframes fadingInAndOutEffect 
 	from
-		opacity: 0.7
+		opacity: 0.8
 	to 
 		opacity: 1
+
+$primaryRedColor: #CC2328;
+$lightestShadeOfGreyColor: #151515;
 
 // MENU
 .menu-button
 	$menu-button: 45px;
-	color: #6a1015;
+	color: $primaryRedColor;
 	position: fixed;
 	width: $menu-button;
 	height: $menu-button;
@@ -49,7 +52,7 @@
 
 	.menu-overlay__content
 		text-align: center;
-		color: #6a1015;
+		color: $primaryRedColor;
 		font-family: $menu-font;
 
 		h1 
@@ -59,7 +62,7 @@
 				content: ""
 				position: absolute;
 				bottom: -9px;
-				background-color: #6a1015;
+				background-color: $primaryRedColor;
 				width: 100px;
 				height: 2px;
 				left: 50%;
@@ -67,7 +70,7 @@
 
 		ul
 			a
-				color: #6a1015;
+				color: $primaryRedColor;
 			font-size: 2em;
 			padding: 0;
 			margin-top: 20px;
@@ -179,18 +182,31 @@ $navbar-height: 50px;
 
 
 .blog-wrapper
+	max-height: 10000px;
 	font-family: 'Titillium Web', sans-serif;
 	text-align: center;
 	color: #9c9a9a;
 	h1 
+		color: white;
 		margin-top: 0;
 		text-align: center;
-	background-color: #151515;
+	background-color: $lightestShadeOfGreyColor;
 	overflow: hidden;
 	height: auto;
 
 	.blog-wrapper__content
 		padding: 20px 0 20px 0;
+		.blog-article
+			margin: 1%;
+			padding: 1%;
+			text-align: left;
+			background-color: #0e0e0e;
+			strong
+				font-size: 1.5em;
+			.blog-article__date
+				font-size: 0.9em;
+
+
 
 .registration-wrapper
 	font-family: 'Titillium Web', sans-serif;
@@ -199,7 +215,7 @@ $navbar-height: 50px;
 	h1 
 		margin-top: 0;
 		text-align: center;
-	background-color: #151515;
+	background-color: $lightestShadeOfGreyColor;
 	overflow: hidden;
 	height: auto;
 
@@ -257,7 +273,7 @@ $navbar-height: 50px;
 		color: white;
 		margin-top: 0;
 		text-align: center;
-	background-color: #151515;
+	background-color: $lightestShadeOfGreyColor;
 	overflow: hidden;
 	height: auto;
 
@@ -277,14 +293,15 @@ $navbar-height: 50px;
 
 .rules-wrapper 
 	// padding: 50px;
+	max-height: 3000px;
 	font-family: 'Titillium Web', sans-serif;
-	text-align: center;
+	text-align: left;
 	color: #9c9a9a;
 	h1 
 		color: white;
 		margin-top: 0;
 		text-align: center;
-	background-color: #151515;
+	background-color: $lightestShadeOfGreyColor;
 	overflow: hidden;
 	height: auto;
 
@@ -292,19 +309,42 @@ $navbar-height: 50px;
 		padding: 30px 1% 30px 1%;
 		.rules-wrapper__content__section
 			h2 
+				text-align: left;
 				margin-top: 0;
+
+			h3 
+				text-align: left;
+				margin-top: 5px;
+				margin-bottom: 5px;
 			padding: 1%
 			background-color: #0e0e0e; 
 			margin-bottom: 20px;
+				
+			table td, table td *
+				vertical-align: top;
+				text-align: left;
+
+			td 
+				padding-right: 3px;
+				padding-bottom: 3px;
 
 			ul 
+				background-color: black;
 				padding: 0;
 				list-style-type: none;
 				li 
 					padding: 2px;
 					margin-bottom: 3px;
 					text-align: left;
-					background-color: black;
+			.section__sub
+				background-color: black;
+				padding: 1%;
+				margin-bottom: 5px;
+				text-align: left;
+
+			.subscript
+				font-size: 0.8em;
+
 
 
 .faq-wrapper 
@@ -317,7 +357,7 @@ $navbar-height: 50px;
 		color: white;
 		margin-top: 0;
 		text-align: center;
-	background-color: #151515;
+	background-color: $lightestShadeOfGreyColor;
 	overflow: hidden;
 	height: auto;
 
@@ -390,7 +430,7 @@ $navbar-height: 50px;
 	h1 
 		margin-top: 0;
 		text-align: center;
-	background-color: #151515;
+	background-color: $lightestShadeOfGreyColor;
 	overflow: hidden;
 	height: auto;
 
@@ -443,7 +483,7 @@ $navbar-height: 50px;
 	h1 
 		margin-top: 0;
 		text-align: center;
-	background-color: #151515;
+	background-color: $lightestShadeOfGreyColor;
 	overflow: hidden;
 	height: auto;
 
@@ -453,7 +493,7 @@ $navbar-height: 50px;
 		.sponsors-list
 			color: #9c9a9a;
 			a
-				color: #6a1015;
+				color: $primaryRedColor;
 			font-size: 2em;
 			padding: 0;
 			margin-top: 20px;
@@ -519,7 +559,7 @@ $navbar-height: 50px;
 
 
 footer 
-	$footer-color: #6a1015;
+	$footer-color: $primaryRedColor;
 	$footer-font: 'Titillium Web', sans-serif;
 	
 	padding-top: 20px;
@@ -546,10 +586,104 @@ footer
 	font-family: $footer-font;
 
 
+
 @media screen and (min-width: 480px) 
 	.intro-wrapper
 		.intro-wrapper__logo 
 			width: 315px;
+
+.tiled-gallery 
+    clear: both;
+    margin: 0 0 20px;
+    overflow: hidden;
+
+.tiled-gallery img 
+    margin: 2px !important;
+
+.tiled-gallery .gallery-group 
+    float: left;
+    position: relative;
+
+.tiled-gallery .tiled-gallery-item 
+    float: left;
+    margin: 0;
+    position: relative;
+    width: inherit;
+
+.tiled-gallery .gallery-row 
+    overflow: hidden;
+
+.tiled-gallery .tiled-gallery-item a 
+    background: transparent;
+    border: none;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    width: auto;
+
+.tiled-gallery .tiled-gallery-item img,
+.tiled-gallery .tiled-gallery-item img:hover 
+    background: none;
+    border: none;
+    box-shadow: none;
+    max-width: 100%;
+    padding: 0;
+    vertical-align: middle;
+
+.tiled-gallery-caption 
+    background: #eee;
+    background: rgba( 255, 255, 255, 0.8);
+    color: #333;
+    font-size: 13px;
+    font-weight: 400;
+    overflow: hidden;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    text-indent: 10px;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+
+.tiled-gallery .tiled-gallery-item-small .tiled-gallery-caption 
+    font-size: 11px;
+
+.widget-gallery .tiled-gallery-unresized 
+    visibility: hidden;
+    height: 0px;
+    overflow: hidden;
+
+.tiled-gallery .tiled-gallery-item img.grayscale 
+    position: absolute;
+    left: 0;
+    top: 0;
+
+.tiled-gallery .tiled-gallery-item img.grayscale:hover 
+    opacity: 0;
+
+.tiled-gallery.type-circle .tiled-gallery-item img 
+    border-radius: 50% !important;
+
+.tiled-gallery.type-circle .tiled-gallery-caption 
+    display: none;
+    opacity: 0;
+
+.gallery-row
+	width: 100% !important;
+	margin: 0 auto 0 auto;
+	max-width: 700px;
+
+.gallery-group.images-1 
+	display: inline-block !important;
+
+.size-full 
+	position: relative;
+	width: 100% !important;
+	height: auto !important;
+	max-width: 600px;
+	left: 50%;
+	transform: translateX(-50%);
 
 
 

@@ -16,6 +16,13 @@
 
     <title>NUS-Black Diamond Boulderactive 2016</title>
 
+   <!--  <link rel="stylesheet" id="all-css-0" href="https://s0.wp.com/_static/??-eJx9UNFSxCAM/CE5PEc7vjh+C1BOcgXCkGDt35v2PB7U4YXZTXaTsHotymFmn1mnpkpsH5BJr8VhUpQg+u0XOzmiB/2/jZolV6EwoLALxojrSB/w01dlm7XRi5u36LscsottlrIU9GwogAygU4L8V3IlzdJfLH51MNobYdldnotxizrYSA75Ahl462CYQcDKDu+XUwSBAVfVGyO3meWDypr6E3rnNxPojHwE0cFomsPqpZ6K4V2R/AzGR59ENrKlMt1dOwwS0nDN7VRrS/VESt4ELSkOsujwvae38/N0fnw9P00v129Cy+xY" type="text/css" media="all">
+    <link rel="stylesheet" id="independent-publisher-fonts-css" href="https://fonts.googleapis.com/css?family=PT+Sans%3A400%2C700%2C400italic%2C700italic%7CPT+Serif%3A400%2C700%2C400italic%2C700italic&amp;subset=latin%2Clatin-ext" type="text/css" media="all">
+    <link rel="stylesheet" id="all-css-2" href="https://s0.wp.com/_static/??-eJyVjtEOgjAMRX/IumAw6oPxW2CUUbK1y1Yk/r0zvKBGEl9u7k3vaWvmCFZYkdWECaKfHHE2DhkTlcEPu7c578yK1QEDZhOn1hB3GLEIK5TsKQ+YTNaHx/8xYrugMEcr4WvB6mcMMtKiWzUWLRebLhBD2yS4H7baDgW82EZJ+C1A7xtKW2jC1osr1pnSWsUtSCVDwihJoZcUPvMLvYVrVR8vdX0+VfX4BIOQqPE=" type="text/css" media="all">
+    <link rel="stylesheet" id="print-css-3" href="https://s1.wp.com/wp-content/mu-plugins/global-print/global-print.css?m=1444132114h" type="text/css" media="print">
+    <link rel="stylesheet" id="all-css-4" href="https://s1.wp.com/_static/??-eJx1i0EKgCAQAD/UtlQWXqK3qEkZ7q6k0ffDS5foNgMzeCdwwsVzQbogxWsLnNGsFBisOfFOTgheBxIbom9dzg3+vK4E4fq+9MnL7sln3BVuUayJNVho7tQ4qUHrfjgeMAc3Zw==" type="text/css" media="all">
+    <link rel="stylesheet" id="all-css-0" href="https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style.css?m=1377793621h" type="text/css" media="all"> -->
+
     <!-- Bootstrap Core CSS -->
     <link href="external/stylesheets/bootstrap/bootstrap.min.css" rel="stylesheet">
 
@@ -28,6 +35,11 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Titillium+Web' rel='stylesheet' type='text/css'>
 
+    <!-- jQuery -->
+    <script src="external/javascripts/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="external/javascripts/bootstrap/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -41,6 +53,7 @@
                 <ul>
                     <a href="#"><li>home</li></a>
                     <a href="#about"><li>about</li></a>
+                    <a href="#blog"><li>blog</li></a>
                     <a href="#registration"><li>registration</li></a>
                     <a href="#indemnity"><li>indemnity form</li></a>
                     <!-- <a href="#schedule"><li>schedule</li></a> -->
@@ -67,10 +80,10 @@
                     </div>
                 </div>
             <a/>
-            <a href="#indemnity">
+            <a href="#blog">
                 <div class="preview-wrapper__important-buttons">
                     <div class="preview-wrapper__important-buttons__content">
-                        <h3>INDEMNITY</h3>
+                        <h3>BLOG</h3>
                         <!-- <i class="fa fa-file-word-o fa-2x"></i> -->
                     </div>
                 </div>
@@ -97,8 +110,90 @@
     <!-- Blog Block Wrapper -->
     <article class="blog-wrapper block-wrapper hidden-block">
         <div class="blog-wrapper__content">
-            <h1>Coming Soon</h1>
-            <p>Please stay tuned! :)</p>
+            <h1>Blog</h1>
+            <!-- We do an ajax to wordpress to populate this wrapper-->
+            <div class="blog-articles-wrapper"></div>
+            <script>
+                var wordpressGetAllBlogPostsURL = "https://public-api.wordpress.com/rest/v1.1/sites/nusboulderactive.wordpress.com/posts/";
+                $(document).ready(function() {
+                    $.ajax({
+                        type: "GET",
+                        url: wordpressGetAllBlogPostsURL,
+                        success: function(result) {
+                            var posts = result.posts;
+                            for (var i = 0; i<posts.length; ++i) {
+                                var post = posts[i];
+                                var titleOfPost = post.title;
+                                var content = post.content;
+                                var dateOfPost = post.date;
+
+                                $('.blog-articles-wrapper').append(createNewArticle(titleOfPost, content, dateOfPost));
+                            }
+
+                            resizeImagesInBlogArticles();
+                        }
+                    })
+                });
+
+                var resizeImagesInBlogArticles = function() {
+                    $('.gallery-row').each(function() {
+                        var rowWidth = $(this).width();
+                        var numberOfChildren = $(this).find('.gallery-group.images-1').length;
+                        $(this).attr('style', '');
+                        $(this).find('.gallery-group.images-1').each(function() {
+                            $(this).attr('style', '');
+                            $(this).find('img').each(function() {
+                                var oldWidth = $(this).width();
+                                var oldHeight = $(this).height();
+                                var newWidthOfImage = (rowWidth/numberOfChildren) - 10;
+                                var newHeightOfImage = (newWidthOfImage * oldHeight) / oldWidth;
+                                $(this).css('width', newWidthOfImage);
+                                $(this).css('height', newHeightOfImage);
+                                console.log(newHeightOfImage);
+                            });
+                        });
+                    })
+                }
+
+                $(window).resize(function() {
+                    resizeImagesInBlogArticles();
+                })
+
+                var createNewArticle = function(titleOfPost, content, dateOfPost) {
+                    var newArticle = $('<article></article>')
+                                        .addClass('blog-article');
+                    var articleTitle = $('<h2></h2>')
+                                        .addClass('blog-article__title')
+                                        .append(titleOfPost);
+                    var articleContent = $('<p></p>')
+                                            .addClass('blog-article__content')
+                                            .append(content);
+                    var articleDate = $('<h4></h4>')
+                                        .addClass('blog-article__date')
+                                        .append("Date of Entry: " + formatDate(dateOfPost));
+                    newArticle.append(articleTitle);
+                    newArticle.append(articleContent);
+                    newArticle.append(articleDate);
+
+                    return newArticle;
+                }      
+
+                var formatDate = function(rawDateString) {
+                    var date = new Date(rawDateString);
+                    var monthNames = [
+                      "January", "February", "March",
+                      "April", "May", "June", "July",
+                      "August", "September", "October",
+                      "November", "December"
+                    ];
+
+                    var day = date.getDate();
+                    var month = monthNames[date.getMonth()];
+                    var year = date.getFullYear();
+ 
+                    return day + " " + month + " " + year;
+                }     
+            </script>
         </div>
     </article>
 
@@ -164,15 +259,36 @@
             <h1>Rules and Regulations</h1>
             <div class="rules-wrapper__content__section">
                 <h2>Rules</h2>
-                <ul>
-                    <li>Competitors must wear the official event T-shirt during their climb.</li>
-                    <li>Competitors must report punctually for their respective categories. Latecomers will be disqualified.</li>
-                    <li>The organizers reserve the right to amend the rules and regulations without prior notice.</li>
-                    <li>Competitors will be briefed on the rules of the competition on the actual day itself.</li>
-                    <li>Schedule of categories may be subjected to changes. Participants are advised to check their email and the event website for the latest updates.</li>
-                    <li>The organizers reserve the right to utilize pictures taken of participants for the purposes of publicity, promotion and post-event reports.</li>
-                    <li>Different qualification formats of will be used throughout the competition. The Flash Format will be used during the U17, Novice and Intermediate Qualifying rounds, whereas the Rotation Format will be used during the Open Qualifying round and ALL categories’ finals.</li>
-                </ul>
+                <table>
+                    <tr>
+                        <td>1. </td>
+                        <td>Competitors must wear the official event T-shirt during their climb.</td>
+                    </tr>
+                    <tr>
+                        <td>2. </td>
+                        <td>Competitors must report punctually for their respective categories. Latecomers will be disqualified.</td>
+                    </tr>
+                    <tr>
+                        <td>3. </td>
+                        <td>The organizers reserve the right to amend the rules and regulations without prior notice.</td>
+                    </tr>
+                    <tr>
+                        <td>4. </td>
+                        <td>Competitors will be briefed on the rules of the competition on the actual day itself.</td>
+                    </tr>
+                    <tr>
+                        <td>5. </td>
+                        <td>Schedule of categories may be subjected to changes. Participants are advised to check their email and the event website for the latest updates.</td>
+                    </tr>
+                    <tr>
+                        <td>6. </td>
+                        <td>The organizers reserve the right to utilize pictures taken of participants for the purposes of publicity, promotion and post-event reports.</td>
+                    </tr>
+                    <tr>
+                        <td>7. </td>
+                        <td>Different qualification formats of will be used throughout the competition. The Flash Format will be used during the U17, Novice and Intermediate Qualifying rounds, whereas the Rotation Format will be used during the Open Qualifying round and ALL categories’ finals.</td>
+                    </tr>
+                </table>
             </div>
 
             <div class="rules-wrapper__content__section">
@@ -181,83 +297,123 @@
                 </p>
                 <div class="section__sub">
                     <h3>Under 17</h3>
-                    <ul>
-                        <b>Under 17 Qualifiers - Flash Format</b><br>
-                        <b>Under 17 Finals - Rotation Format</b><br>
-                        <br>
-                        <li>As of December 2016, participants must be below the age of 17.</li>    
-                        <li>Participants must not have been a finalist in the Novice or higher categories of previous competitions before.</li>
-                    </ul>
+                    <b>Qualifiers - Flash Format | Finals - Rotation Format</b><br>
+                    <table>
+                        <tr>
+                            <td>1.</td>
+                            <td>As of December 2016, participants must be below the age of 17.</td>
+                        </tr>    
+                        <tr>
+                            <td>2.</td>
+                            <td>Participants must not have been a finalist in the Novice or higher categories of previous competitions before.</td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="section__sub">
                     <h3>Novice Category</h3>
-                    <ul>
-                        <b>Novice Qualifiers - Flash Format</b><br>
-                        <b>Novice Finals - Rotation Format</b><br>
-                        <br>
-                        <li>Participants must not have been a finalist in the Novice, Intermediate or Open categories of previous competitions before.</li>    
-                        <li>National boulder/lead climbers are not allowed to join this category.</li>
-                    </ul>
+                    <b>Qualifiers - Flash Format | Finals - Rotation Format</b><br>
+                    <table>
+                        <tr>
+                            <td>1. </td>
+                            <td>Participants must not have been a finalist in the Novice, Intermediate or Open categories of previous competitions before.</td>
+                        </tr>    
+                        <tr>
+                            <td>2. </td>
+                            <td>National boulder/lead climbers are not allowed to join this category.</td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="section__sub">
                     <h3>Intermediate Category</h3>
-                    <ul>
-                        <b>Intermediate Qualifiers - Flash Format</b><br>
-                        <b>Intermediate Finals - Rotation Format</b><br>
-                        <br>
-                        <li>Participants must not have been amongst the top 3 positions in the Intermediate or Open categories of previous competitions before.</li>
-                        <li>Participants must not have been a finalist in the Open categories of previous competitions before.</li>
-                        <li>National boulder/lead climbers are not allowed to join this category.</li>
-                        <li>Participants of this category are allowed to join the Open Category as well.</li>
-                    </ul>
+                    <b>Qualifiers - Flash Format | Finals - Rotation Format</b><br>
+                    <table>
+                        <tr>
+                            <td>1. </td>
+                            <td>Participants must not have been amongst the top 3 positions in the Intermediate or Open categories of previous competitions before.</td>
+                        </tr>
+                        <tr>
+                            <td>2. </td>
+                            <td>Participants must not have been a finalist in the Open categories of previous competitions before.</td>
+                        </tr>
+                        <tr>
+                            <td>3. </td>
+                            <td>National boulder/lead climbers are not allowed to join this category.</td>
+                        </tr>
+                        <tr>
+                            <td>4. </td>
+                            <td>Participants of this category are allowed to join the Open Category as well.</td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="section__sub">
                     <h3>Open Category</h3>
-                    <ul>
-                        <!-- can we link the session format to the FAQ? -->
-                        <b>Open Qualifiers - Session Format*</b><br> 
-                        <b>Open Semi-Finals - IFSC Rotation Format</b><br>
-                        <b>Open Finals - IFSC Finals Format</b><br>
-                        <br>
-
-                        <b>*What is the Session Format?</b><br>
-                        <t>Session Format is adopted from The North Face Cup held in Japan. This format will be used for Open Qualifying round.<br>Open climbers will have 60 minutes to finish 8-10 routes. Routes will consist of a Top, Bonus-II and Bonus-I. Bonus-II will usually be a tile that is closer to the Top tile than Bonus-I. Scoring will be based on Top/Bonus-II/Bonus-I in that order. 
-                        <br>
-                        The number of flashed routes (i.e. 1 attempt) <b>will</b> be taken into account in the scoring, but subsequent attempts <b>will not</b> be counted.<br>
-                        Climbers will be allocated into different details. There <b> will be </b> isolation and there <b>will not be any</b> demonstration climb.<br>
-                        <br>
-                        <b>Example 1.
-                            Who will be ranked higher?<br></b>
-                            Climber A Score: Top = 5 / Flash = 5 / Bonus-II = 7 / Bonus-I = 8 <br>
-                            Climber B Score: Top = 5 / Flash = 4 / Bonus-II = 8 / Bonus-I = 8 <br>
-                        <b><em>Ans: Climber A</b></em><br>
-                        <br>
-                        <b>Example 2.
-                            Who will be ranked higher?<br></b>
-                            Climber A Score: Top = 5 /Flash = 5 /Bonus-II = 8 / Bonus-I = 7 <br>
-                            Climber B Score: Top = 5 /Flash = 5 /Bonus-II = 7 / Bonus-I = 8 <br>
-                        <b><em>Ans: Climber A</b></em><br>
-                        <br>
-
-                        <li>All are welcome! If you dare..</li>
-                        <li>National (Boulder/Lead) climbers can only join this category.</li>
-                    </ul>
+                    <b>Qualifiers - Session Format* | Semi-Finals - IFSC Rotation Format | Finals - IFSC Finals Format</b><br> 
+                    <table>
+                        <tr>
+                            <td>1. </td>
+                            <td>All are welcome! If you dare..</td>
+                        </tr>
+                        <tr>
+                            <td>2. </td>
+                            <td>National (Boulder/Lead) climbers can only join this category.</td>
+                        </tr>
+                    </table>
+                    <div class="subscript">
+                            <!-- can we link the session format to the FAQ? -->
+                            <b>*What is the Session Format?</b><br>
+                            <t>Session Format is adopted from The North Face Cup held in Japan. This format will be used for Open Qualifying round.<br>Open climbers will have 60 minutes to finish 8-10 routes. Routes will consist of a Top, Bonus-II and Bonus-I. Bonus-II will usually be a tile that is closer to the Top tile than Bonus-I. Scoring will be based on Top/Bonus-II/Bonus-I in that order. 
+                            <br>
+                            The number of flashed routes (i.e. 1 attempt) <b>will</b> be taken into account in the scoring, but subsequent attempts <b>will not</b> be counted.<br>
+                            Climbers will be allocated into different details. There <b> will be </b> isolation and there <b>will not be any</b> demonstration climb.<br>
+                            <br>
+                            <b>Example 1.
+                                Who will be ranked higher?<br></b>
+                                Climber A Score: Top = 5 / Flash = 5 / Bonus-II = 7 / Bonus-I = 8 <br>
+                                Climber B Score: Top = 5 / Flash = 4 / Bonus-II = 8 / Bonus-I = 8 <br>
+                            <b><em>Ans: Climber A</b></em><br>
+                            <br>
+                            <b>Example 2.
+                                Who will be ranked higher?<br></b>
+                                Climber A Score: Top = 5 /Flash = 5 /Bonus-II = 8 / Bonus-I = 7 <br>
+                                Climber B Score: Top = 5 /Flash = 5 /Bonus-II = 7 / Bonus-I = 8 <br>
+                            <b><em>Ans: Climber A</b></em><br>
+                            <br>
+                            </b>
+                        </div>
                 </div>
                 <div class="section__sub">
                     <h3>Team Category</h3>
-                    <ul>
-                        <li>Each team must have 3 people. (No restrictions on gender composition)</li>
-                        <li>Maximum of 2 intermediate climbers per team.</li>
-                        <li>Girls score double points.</li>
-                        <li>National boulder/lead/invitational climbers are not allowed to join this category.</li>
-                    </ul>
+                    <table>
+                        <tr>
+                            <td>1. </td>
+                            <td>Each team must have 3 people. (No restrictions on gender composition)</td>
+                        </tr>
+                        <tr>
+                            <td>2. </td>
+                            <td>Maximum of 2 intermediate climbers per team.</td>
+                        </tr>
+                        <tr>
+                            <td>3. </td>
+                            <td>Girls score double points.</td>
+                        </tr>
+                        <tr>
+                            <td>4. </td>
+                            <td>National boulder/lead/invitational climbers are not allowed to join this category.</td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="section__sub">
                     <h3>Fun Climb Category</h3>
-                    <ul>
-                        <li>Anyone can join except those who have registered for other competitive categories.</li>
-                        <li>Children aged 10 and below have to be accompanied by a registered adult.</li>
-                    </ul>
+                    <table>
+                        <tr>
+                            <td>1. </td>
+                            <td>Anyone can join except those who have registered for other competitive categories.</td>
+                        </tr>
+                        <tr>
+                            <td>2. </td>
+                            <td>Children aged 10 and below have to be accompanied by a registered adult.</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -709,12 +865,6 @@
         <a href="https://www.instagram.com/boulderactive2016/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
     </footer>
 
-    <!-- jQuery -->
-    <script src="external/javascripts/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="external/javascripts/bootstrap/bootstrap.min.js"></script>
-
     <script>
         var handleRoute = function() {
             // Get Route
@@ -797,8 +947,6 @@
         $(window).on('hashchange', function() {
             handleRoute();
         });
-
-
     </script>
 
 <!-- Google Analytics -->
@@ -815,7 +963,6 @@
         ga('send', 'pageview');
     } 
 </script>
-
 
 </body>
 
